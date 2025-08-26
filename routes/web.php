@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\ThoughtController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +23,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/titles/{title}/thoughts', [ThoughtController::class, 'store'])
         ->name('thoughts.store');
+
+    Route::get('/tags/{tag}', [TagController::class, 'show'])->name('tags.show');
+
         
 });
 

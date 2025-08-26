@@ -10,11 +10,16 @@ class Thought extends Model
     /** @use HasFactory<\Database\Factories\ThoughtFactory> */
     use HasFactory;
 
-    protected $fillable = ['thought'];
+    protected $fillable = ['part' ,'thought', 'tag_id'];
 
     public function title()
     {
         return $this->belongsTo(Title::class);
+    }
+
+    public function tag()
+    {
+    return $this->belongsTo(Tag::class);
     }
 
 }

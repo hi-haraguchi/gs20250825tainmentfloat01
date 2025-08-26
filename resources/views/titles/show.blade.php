@@ -37,7 +37,9 @@
           <h3 class="text-lg font-semibold mb-2">感想を投稿する</h3>
           <form action="{{ route('thoughts.store', $title) }}" method="POST">
             @csrf
+            <input type="text" name="part" class="w-full border rounded p-2 text-gray-800 mt-2"  placeholder="どの部分が印象に残りましたか（ページ数や巻数など）">
             <textarea name="thought" class="w-full border rounded p-2 text-gray-800" rows="3" placeholder="感想を入力してください..."></textarea>
+            <input type="text" name="tag" class="w-full border rounded p-2 text-gray-800 mt-2"  placeholder="タグ（例: 元気を出したいとき）">
             @error('thought')
               <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -54,7 +56,15 @@
           <h3 class="text-lg font-semibold mb-2">（編集用）感想一覧</h3>
           @forelse ($title->thoughts as $thought)
             <div class="mb-3 p-3 bg-gray-100 dark:bg-gray-700 rounded">
+
+              <p class="text-sm font-semibold text-gray-700 dark:text-gray-300">{{ $thought->part }}</p>
+
               <p>{{ $thought->thought }}</p>
+
+              @if ($thought->tag)
+              <p class="text-sm text-blue-600 dark:text-blue-400 mt-1">#{{ $thought->tag->tag }}</p>
+              @endif
+
               <p class="text-xs text-gray-500 mt-1">{{ $thought->created_at->format('Y-m-d H:i') }}</p>
             </div>
           @empty
@@ -62,6 +72,7 @@
           @endforelse
         </div>
       </div>
+
     </div>
   </div>
 </x-app-layout>
