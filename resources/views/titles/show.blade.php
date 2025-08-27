@@ -38,7 +38,7 @@
           <form action="{{ route('thoughts.store', $title) }}" method="POST">
             @csrf
             <input type="text" name="part" class="w-full border rounded p-2 text-gray-800 mt-2"  placeholder="どの部分が印象に残りましたか（ページ数や巻数など）">
-            <textarea name="thought" class="w-full border rounded p-2 text-gray-800" rows="3" placeholder="感想を入力してください..."></textarea>
+            <textarea name="thought" class="w-full border rounded p-2 text-gray-800 mt-3" rows="3"  placeholder="感想を入力してください..."></textarea>
             <input type="text" name="tag" class="w-full border rounded p-2 text-gray-800 mt-2"  placeholder="タグ（例: 元気を出したいとき）">
             @error('thought')
               <p class="text-red-500 text-sm mt-1">{{ $message }}</p>

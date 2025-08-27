@@ -18,7 +18,13 @@
               @if($title->thoughts->isNotEmpty())
               <ul class="mt-2 list-disc list-inside text-sm text-gray-600 dark:text-gray-300">
                 @foreach($title->thoughts as $thought)
-                <li>{{ $thought->thought }}</li>
+                  <li>
+                      <span class="font-semibold">[{{ $thought->part }}]</span>
+                      {{ $thought->thought }}
+                      @if($thought->tag)
+                      <span class="text-blue-500">#{{ $thought->tag->tag }}</span>
+                      @endif
+                  </li>
                 @endforeach
               </ul>
               @else

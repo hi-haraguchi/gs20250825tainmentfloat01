@@ -24,6 +24,10 @@
                     {{ __('エンタメ登録') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
+                    {{ __('今の自分にピッタリのエンタメを探す') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
@@ -87,6 +91,11 @@
             <x-responsive-nav-link :href="route('titles.create')" :active="request()->routeIs('titles.create')">
             {{ __('エンタメ作成') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
+            {{ __('今の自分にピッタリのエンタメを探す') }}
+            </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->

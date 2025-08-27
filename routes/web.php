@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
         ->name('thoughts.store');
 
     Route::get('/tags/{tag}', [TagController::class, 'show'])->name('tags.show');
-
+    Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
         
 });
 
